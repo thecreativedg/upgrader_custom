@@ -699,6 +699,7 @@ class Upgrader {
         //   TextButton(
         //       child: Text(messages.message(UpgraderMessage.buttonTitleLater)!),
         //       onPressed: () => onUserLater(context, true)),
+        //notes
         Padding(
           padding: const EdgeInsets.only(bottom: 15),
           child: Row(
