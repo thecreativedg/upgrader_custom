@@ -628,12 +628,25 @@ class Upgrader {
           padding: const EdgeInsets.only(top: 15.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text(messages.message(UpgraderMessage.releaseNotes)!,
-                  style: const TextStyle(fontWeight: FontWeight.bold)),
+              Text(
+                messages.message(UpgraderMessage.releaseNotes)!,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontFamily: 'HGMedium',
+                  height: 1.4,
+                  fontSize: 14,
+                ),
+              ),
               Text(
                 releaseNotes,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontFamily: 'HGRegular',
+                  height: 1.4,
+                  fontSize: 14,
+                ),
                 maxLines: 15,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -641,31 +654,79 @@ class Upgrader {
           ));
     }
     return AlertDialog(
-      title: Text(title, key: const Key('upgrader.dialog.title')),
+      title: Text(title,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            fontFamily: 'HGMedium',
+            height: 1.4,
+            fontSize: 17,
+          ),
+          key: const Key('upgrader.dialog.title')),
       content: SingleChildScrollView(
           child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text(message),
+          Text(
+            message,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontFamily: 'HGRegular',
+              height: 1.4,
+              fontSize: 14,
+            ),
+          ),
           Padding(
               padding: const EdgeInsets.only(top: 15.0),
-              child: Text(messages.message(UpgraderMessage.prompt)!)),
+              child: Text(
+                messages.message(UpgraderMessage.prompt)!,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontFamily: 'HGRegular',
+                  height: 1.4,
+                  fontSize: 14,
+                ),
+              )),
           if (notes != null) notes,
         ],
       )),
       actions: <Widget>[
-        if (showIgnore)
-          TextButton(
-              child: Text(messages.message(UpgraderMessage.buttonTitleIgnore)!),
-              onPressed: () => onUserIgnored(context, true)),
-        if (showLater)
-          TextButton(
-              child: Text(messages.message(UpgraderMessage.buttonTitleLater)!),
-              onPressed: () => onUserLater(context, true)),
-        TextButton(
-            child: Text(messages.message(UpgraderMessage.buttonTitleUpdate)!),
-            onPressed: () => onUserUpdated(context, !blocked())),
+        // if (showIgnore)
+        //   TextButton(
+        //       child: Text(messages.message(UpgraderMessage.buttonTitleIgnore)!),
+        //       onPressed: () => onUserIgnored(context, true)),
+        // if (showLater)
+        //   TextButton(
+        //       child: Text(messages.message(UpgraderMessage.buttonTitleLater)!),
+        //       onPressed: () => onUserLater(context, true)),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 15),
+          child: Row(
+            mainAxisAlignment:
+                MainAxisAlignment.center, //Center Row contents horizontally,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Color(0xFFF5F5F7),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(4)),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+                    child: Text(
+                        style: const TextStyle(
+                          fontFamily: 'HGMedium',
+                          height: 1.4,
+                          fontSize: 12,
+                          color: Color(0xFF0D0C22),
+                        ),
+                        messages.message(UpgraderMessage.buttonTitleUpdate)!),
+                  ),
+                  onPressed: () => onUserUpdated(context, !blocked())),
+            ],
+          ),
+        ),
       ],
     );
   }

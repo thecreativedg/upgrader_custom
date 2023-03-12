@@ -244,7 +244,7 @@ class UpgraderMessages {
       case 'en':
       default:
         message =
-            'A new version of {{appName}} is available! Version {{currentAppStoreVersion}} is now available-you have {{currentInstalledVersion}}.';
+            'Dostupna je verzija {{currentAppStoreVersion}}.\nDok vi koristite {{currentInstalledVersion}} verziju aplikacije.';
         break;
     }
     return message;
@@ -586,7 +586,7 @@ class UpgraderMessages {
         break;
       case 'en':
       default:
-        message = 'UPDATE NOW';
+        message = 'Ažuriraj sada';
         break;
     }
     return message;
@@ -699,7 +699,7 @@ class UpgraderMessages {
         break;
       case 'en':
       default:
-        message = 'Would you like to update it now?';
+        message = 'Molimo vas da ažurirate aplikaciju.';
         break;
     }
     return message;
@@ -769,7 +769,7 @@ class UpgraderMessages {
       case 'zh':
       case 'en':
       default:
-        message = 'Release Notes';
+        message = 'Što je novo?';
         break;
     }
     return message;
@@ -882,7 +882,7 @@ class UpgraderMessages {
         break;
       case 'en':
       default:
-        message = 'Update App?';
+        message = 'Ažuriranje';
         break;
     }
     return message;
